@@ -1,0 +1,55 @@
+html {
+    background-image: url("bankgrount2.jpg");
+    display: flex;
+    flex-wrap: nowrap;
+    position: static;
+    /* width: auto;
+    height: 100%; */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    width: 100%;
+}
+
+.column {
+    width: 24%;
+    height: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 4px;
+    vertical-align: top;
+    font-size: auto;
+    background-color: honeydew;
+}
+
+h1 {
+    text-align: center;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* forn-size all */
+
+input[type="text"] {
+    margin: 0% 10% 0% 10%;
+    width: 70%;
+}
+
+.btn {
+    width: 80%;
+}
+
+.addBtn {
+    background-color: rgb(42, 179, 99);
+    margin-top: 2%;
+    margin-left: 10%;
+}

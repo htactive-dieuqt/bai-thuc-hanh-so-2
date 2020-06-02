@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Trello</title>
+</head>
+
+<body class="body">
+    <div class="header"></div>
+
+    <div id="myDIV" class="row">
+        <div class="column">
+            <h1> To do </h1>
+            <div>
+                <ul id="myUL">
+                    <li>Task 1: Add Title</li>
+                </ul>
+                <button class="btn danger" onclick="myFunctionToDo()" id="todo">Add </button>
+            </div>
+            <div style="display: none;" id="todo1">
+                <input type="text" id="myInput" placeholder="Enter a title for this card..."><br>
+                <!-- <span onclick="" class="addBtn">Add Card</span> -->
+                <button type="button" onclick="" class="addBtn">ADD CARD</button>
+            </div>
+        </div>
+        <div class="column">
+            <h1> Doing </h1>
+            <div>
+                <ul id="myUL">
+                    <li>Task 1: Add Title</li>
+                </ul>
+                <button class="btn danger" onclick="myFunctionDoing()" id="doing">Add </button>
+                <div style="display: none;" id="doing1">
+                    <input type="text" id="myInput" placeholder="Add task"><br>
+                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h1> Verify </h1>
+            <div>
+                <ul id="myUL">
+                    <li>Task 1: Add Title</li>
+                </ul>
+                <button class="btn danger" onclick="myFunctionVerify()" id="verify">Add</button>
+                <div style="display: none;" id="verify1">
+                    <input type="text" id="myInput" placeholder="Add task"><br>
+                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h1> Done </h1>
+            <div>
+                <ul id="myUL">
+                    <li>Task 1: Add Title</li>
+                </ul>
+                <button class="btn danger" onclick="myFunctionDone()" id="done">Add</button>
+                <div style="display: none;" id="done1">
+                    <input type="text" id="myInput" placeholder="Add task"><br>
+                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer"></div>
+</body>
+
+<script type="text/javascript" src="main.js"></script>
+
+</html>
