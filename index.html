@@ -4,64 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Trello</title>
 </head>
 
-<body class="body">
-    <div class="header"></div>
+<body class="base">
+    <div class="header">
+        <div class="left-aligned">
+            <div class="button">Home</div>
+            <div class="button">Boards</div>
+            <div class="button">Search bar</div>
+        </div>
+        <div class="logo button">
+            Logo
+        </div>
+        <div class="right-aligned">
+            <div class="button">Add</div>
+            <div class="button">Info</div>
+            <div class="button">Bell</div>
+            <div class="button">Gear</div>
+            <div class="button">Avatar</div>
+        </div>
+    </div>
 
-    <div id="myDIV" class="row">
-        <div class="column">
-            <h1> To do </h1>
-            <div>
-                <ul id="myUL">
-                    <li>Task 1: Add Title</li>
-                </ul>
-                <button class="btn danger" onclick="myFunctionToDo()" id="todo">Add </button>
+    <div class="board">
+        <div class="board-header">
+            <div class="left">
+                <div class="board-header-text">Board Title</div>
+                <div class="button">Star</div>
+                <div class="button">Personal</div>
+                <div class="button">Private</div>
             </div>
-            <div style="display: none;" id="todo1">
-                <input type="text" id="myInput" placeholder="Enter a title for this card..."><br>
-                <!-- <span onclick="" class="addBtn">Add Card</span> -->
-                <button type="button" onclick="" class="addBtn">ADD CARD</button>
+            <div class="right">
+                <div class="button">Show menu</div>
+                <div class="button">Butler</div>
             </div>
         </div>
-        <div class="column">
-            <h1> Doing </h1>
-            <div>
-                <ul id="myUL">
-                    <li>Task 1: Add Title</li>
+
+        <div class="board-lists">
+            <!-- column TO DO -->
+            <div class="board-list">
+                <div class="list-title">
+                    <h1> To do </h1>
+                </div>
+                <ul id="my-Todo">
+                    <li>Card 1</li>
+                    <li> Card 2</li>
                 </ul>
-                <button class="btn danger" onclick="myFunctionDoing()" id="doing">Add </button>
-                <div style="display: none;" id="doing1">
-                    <input type="text" id="myInput" placeholder="Add task"><br>
-                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                <div class="btn danger" onclick="showInputField('todo')" id='todo-div'> + Add Card </button>
+                </div>
+                <div style="display: none;" id="todo-input">
+                    <input type="text" id="myInput-Todo" placeholder="Enter a title...">
+                    <span class="addBtn" onclick="newElement('Todo')">ADD CARD</span>
+                    <span class="delBtn" onclick="hideInputField('todo')">X</span>
                 </div>
             </div>
-        </div>
-        <div class="column">
-            <h1> Verify </h1>
-            <div>
-                <ul id="myUL">
-                    <li>Task 1: Add Title</li>
+
+            <!-- column DOING -->
+            <div class="board-list">
+                <div class="list-title">
+                    <h1> Doing </h1>
+                </div>
+                <ul id="my-Doing">
+                    <li>Card 1</li>
+                    <li> Card 2</li>
                 </ul>
-                <button class="btn danger" onclick="myFunctionVerify()" id="verify">Add</button>
-                <div style="display: none;" id="verify1">
-                    <input type="text" id="myInput" placeholder="Add task"><br>
-                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                <div>
+                    <div class="btn danger" onclick="showInputField('doing')" id="doing-div"> + Add Card </button>
+                    </div>
+                    <div style="display: none;" id="doing-input">
+                        <input type="text" id="myInput-Doing" placeholder="Add task"><br>
+                        <span class="addBtn" onclick="newElement('Doing')">ADD CARD</span>
+                        <span class="delBtn" onclick="hideInputField('doing')">X</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="column">
-            <h1> Done </h1>
-            <div>
-                <ul id="myUL">
-                    <li>Task 1: Add Title</li>
+
+            <!-- column VERIFY -->
+            <div class="board-list">
+                <div class="list-title">
+                    <h1> Verify </h1>
+                </div>
+                <ul id="my-Verify">
+                    <li>Card 1</li>
                 </ul>
-                <button class="btn danger" onclick="myFunctionDone()" id="done">Add</button>
-                <div style="display: none;" id="done1">
-                    <input type="text" id="myInput" placeholder="Add task"><br>
-                    <button type="button" onclick="" class="addBtn">ADD CARD</button>
+                <div>
+                    <div class="btn danger" onclick="showInputField('verify')" id="verify-div"> + Add Card </button>
+                    </div>
+                    <div style="display: none;" id="verify-input">
+                        <input type="text" id="myInput-Verify" placeholder="Add task"><br>
+                        <span class="addBtn" onclick="newElement('Verify')">ADD CARD</span>
+                        <span class="delBtn" onclick="hideInputField('verify')">X</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- column DONE -->
+            <div class="board-list">
+                <div class="list-title">
+                    <h1> Done </h1>
+                </div>
+                <ul id="my-Done">
+                    <li>Card 1</li>
+                </ul>
+                <div class="btn danger" onclick="showInputField('done')" id="done-div"> + Add Card </div>
+                <div style="display: none;" id="done-input">
+                    <input type="text" id="myInput-Done" placeholder="Add task"><br>
+                    <span class="addBtn" onclick="newElement('Done')">ADD CARD</span>
+                    <span class="delBtn" onclick="hideInputField('done')">X</span>
                 </div>
             </div>
         </div>
@@ -70,6 +120,6 @@
     <div class="footer"></div>
 </body>
 
-<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="js/crudList.js"></script>
 
 </html>
