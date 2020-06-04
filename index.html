@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Trello</title>
 </head>
@@ -48,11 +51,19 @@
                     <h1> To do </h1>
                 </div>
                 <ul id="my-Todo">
-                    <li>Card 1</li>
-                    <li> Card 2</li>
+                    <li class="card-Todo"> Card 1
+                        <a href="#" class="updateBtn-Todo">
+                            <span onclick="alert(123);" class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </li>
+
+                    <li class="card-Todo"> Card 2
+                        <a href="#" class="updateBtn-Todo" id="myBtn" data-toggle="modal" data-target="#myModal">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </li>
                 </ul>
-                <div class="btn danger" onclick="showInputField('todo')" id='todo-div'> + Add Card </button>
-                </div>
+                <div class="btn danger" onclick="showInputField('todo')" id='todo-div'> + Add Card </div>
                 <div style="display: none;" id="todo-input">
                     <input type="text" id="myInput-Todo" placeholder="Enter a title...">
                     <span class="addBtn" onclick="newElement('Todo')">ADD CARD</span>
@@ -66,12 +77,14 @@
                     <h1> Doing </h1>
                 </div>
                 <ul id="my-Doing">
-                    <li>Card 1</li>
-                    <li> Card 2</li>
+                    <li class="card-Doing"> Card 1
+                        <a href="#" class="updateBtn-Doing">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </li>
                 </ul>
                 <div>
-                    <div class="btn danger" onclick="showInputField('doing')" id="doing-div"> + Add Card </button>
-                    </div>
+                    <div class="btn danger" onclick="showInputField('doing')" id="doing-div"> + Add Card </div>
                     <div style="display: none;" id="doing-input">
                         <input type="text" id="myInput-Doing" placeholder="Add task"><br>
                         <span class="addBtn" onclick="newElement('Doing')">ADD CARD</span>
@@ -86,11 +99,14 @@
                     <h1> Verify </h1>
                 </div>
                 <ul id="my-Verify">
-                    <li>Card 1</li>
+                    <li class="card-Verify"> Card 1
+                        <a href="#" class="updateBtn-Verify">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </li>
                 </ul>
                 <div>
-                    <div class="btn danger" onclick="showInputField('verify')" id="verify-div"> + Add Card </button>
-                    </div>
+                    <div class="btn danger" onclick="showInputField('verify')" id="verify-div"> + Add Card </div>
                     <div style="display: none;" id="verify-input">
                         <input type="text" id="myInput-Verify" placeholder="Add task"><br>
                         <span class="addBtn" onclick="newElement('Verify')">ADD CARD</span>
@@ -105,7 +121,11 @@
                     <h1> Done </h1>
                 </div>
                 <ul id="my-Done">
-                    <li>Card 1</li>
+                    <li class="card-Done" type="button" data-toggle="modal" data-target="#myModal"> Card 1
+                        <a>
+                            <span onclick="alert(123);" class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="btn danger" onclick="showInputField('done')" id="done-div"> + Add Card </div>
                 <div style="display: none;" id="done-input">
@@ -114,9 +134,96 @@
                     <span class="delBtn" onclick="hideInputField('done')">X</span>
                 </div>
             </div>
+
+            <!-- column MODAL -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="titleModal"> Card 1 </h4>
+                        <p>in list ...</p>
+                        <div class="modal-left">
+                            <h4><strong>Description</strong></h4>
+                            <!-- <textarea name="inputDes-Done" id="inputDes-Done" cols="70" rows="2" placeholder="Add a more detailied description..."></textarea> -->
+                            <!-- <input type="text" id="inputDes-Done" placeholder="Add a more detailied description..."> -->
+
+                            <h4><strong>Checklist</strong></h4>
+                            <button>Delete</button>
+                            <form action="/action_page.php">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="check1">
+                                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>Option 1
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="check2">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">Option 2
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" disabled>Option 3
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+
+                            <h4><strong>Activity</strong></h4>
+                            <button>Show Details</button>
+                            <input type="text" id="inputDes-Activity" placeholder="Write a comment...">
+                            <!-- <textarea name="inputDes-Activity" id="inputDes-Activity" cols="70" rows="4" placeholder="Write a comment..."></textarea> -->
+                        </div>
+                        <div class="modal-right">
+                            <p>ADD TO CARD</p>
+                            <div>
+                                <button>Members</button>
+                            </div>
+                            <div>
+                                <button>Labels</button>
+                            </div>
+                            <div>
+                                <button>Checklist</button>
+                            </div>
+                            <div>
+                                <button>Due Date</button>
+                            </div>
+                            <div>
+                                <button>Attchment</button>
+                            </div>
+                            <div>
+                                <button>Cover</button>
+                            </div>
+                            <p>POWER-UPS</p>
+                            <div>
+                                <button>Get Power-Ups</button>
+                            </div>
+                            <p>ACTIONS</p>
+                            <div>
+                                <button>Move</button>
+                            </div>
+                            <div>
+                                <button>Copy</button>
+                            </div>
+                            <div>
+                                <button>Make Template</button>
+                            </div>
+                            <div>
+                                <button>Watch</button>
+                            </div>
+                            <div>
+                                <button>Archive</button>
+                            </div>
+                            <div>
+                                <button>Share</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="footer"></div>
 </body>
 
