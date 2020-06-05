@@ -47,18 +47,20 @@
         <div class="board-lists">
             <!-- column TO DO -->
             <div class="board-list">
-                <div class="list-title">
+                <div class="list-title" id="UL-Todo">
                     <h1> To do </h1>
                 </div>
                 <ul id="my-Todo">
-                    <li class="card-Todo"> Card 1
+                    <li class="card-Todo" id="4" type="button" onclick="titleCard(4)">
+                        Card To do 1
                         <a href="#" class="updateBtn-Todo">
-                            <span onclick="alert(123);" class="glyphicon glyphicon-pencil"></span>
+                            <span onclick="func1(event)" class="glyphicon glyphicon-pencil" data-toggle="modal" data-target="#myModal"></span>
                         </a>
                     </li>
 
-                    <li class="card-Todo"> Card 2
-                        <a href="#" class="updateBtn-Todo" id="myBtn" data-toggle="modal" data-target="#myModal">
+                    <li class="card-Todo" id="5" type="button" onclick="titleCard(5, 'Todo')">
+                        Card 2
+                        <a href="#" class="updateBtn-Todo">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </li>
@@ -73,11 +75,12 @@
 
             <!-- column DOING -->
             <div class="board-list">
-                <div class="list-title">
+                <div class="list-title" id="UL-Doing">
                     <h1> Doing </h1>
                 </div>
                 <ul id="my-Doing">
-                    <li class="card-Doing"> Card 1
+                    <li class="card-Doing" id="3" type="button" onclick="titleCard(3, 'Doing')">
+                        Card 1
                         <a href="#" class="updateBtn-Doing">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -95,11 +98,12 @@
 
             <!-- column VERIFY -->
             <div class="board-list">
-                <div class="list-title">
+                <div class="list-title" id="UL-Verify">
                     <h1> Verify </h1>
                 </div>
                 <ul id="my-Verify">
-                    <li class="card-Verify"> Card 1
+                    <li class="card-Verify" id="2" type="button" onclick="titleCard(2, 'Verify')">
+                        Card 1
                         <a href="#" class="updateBtn-Verify">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </a>
@@ -117,13 +121,14 @@
 
             <!-- column DONE -->
             <div class="board-list">
-                <div class="list-title">
+                <div class="list-title" id="UL-Done">
                     <h1> Done </h1>
                 </div>
                 <ul id="my-Done">
-                    <li class="card-Done" type="button" data-toggle="modal" data-target="#myModal"> Card 1
-                        <a>
-                            <span onclick="alert(123);" class="glyphicon glyphicon-pencil"></span>
+                    <li class="card-Done" id="1" type="button" onclick="titleCard(1, 'Done')">
+                        Card 1
+                        <a href="" id="updateBtn-Done">
+                            <span class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </li>
                 </ul>
@@ -135,89 +140,91 @@
                 </div>
             </div>
 
-            <!-- column MODAL -->
+            <!-- column MODAL UPDATE-->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 id="titleModal"> Card 1 </h4>
-                        <p>in list ...</p>
+                        <h4 id="titleCardLI"> ?????? </h4>
+                        <p id="titleUL">in list</p>
                         <div class="modal-left">
-                            <h4><strong>Description</strong></h4>
-                            <!-- <textarea name="inputDes-Done" id="inputDes-Done" cols="70" rows="2" placeholder="Add a more detailied description..."></textarea> -->
-                            <!-- <input type="text" id="inputDes-Done" placeholder="Add a more detailied description..."> -->
+                            <strong> Description</strong>
+                            <!-- <textarea name="inputDes-Done" id="inputDes-Done" cols="81" rows="2" placeholder="Add a more detailied description..." onclick=""></textarea> -->
+                            <button class="button-descript">Add a more detailied description...</button>
+                            <div id="checkList">
+                                <strong> CheckList</strong>
+                                <button class="button-Delete">Delete</button>
 
-                            <h4><strong>Checklist</strong></h4>
-                            <button>Delete</button>
-                            <form action="/action_page.php">
-                                <div class="form-check">
-                                    <label class="form-check-label" for="check1">
+                                <form action="/action_page.php">
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="check1">
                                         <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>Option 1
                                     </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label" for="check2">
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label" for="check2">
                                         <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">Option 2
                                     </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
                                         <input type="checkbox" class="form-check-input" disabled>Option 3
                                     </label>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                                    </div>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
 
-                            <h4><strong>Activity</strong></h4>
-                            <button>Show Details</button>
-                            <input type="text" id="inputDes-Activity" placeholder="Write a comment...">
-                            <!-- <textarea name="inputDes-Activity" id="inputDes-Activity" cols="70" rows="4" placeholder="Write a comment..."></textarea> -->
+                            <div id="activityList">
+                                <strong> Activity</strong>
+                                <button class="button-ShowDetails">Show Details</button>
+                                <textarea name="inputDes-Activity" id="inputDes-Activity" cols="81" rows="4" placeholder="Write a comment..."></textarea>
+                            </div>
+
                         </div>
                         <div class="modal-right">
-                            <p>ADD TO CARD</p>
                             <div>
+                                ADD TO CARD
                                 <button>Members</button>
-                            </div>
-                            <div>
                                 <button>Labels</button>
-                            </div>
-                            <div>
                                 <button>Checklist</button>
-                            </div>
-                            <div>
                                 <button>Due Date</button>
-                            </div>
-                            <div>
                                 <button>Attchment</button>
-                            </div>
-                            <div>
                                 <button>Cover</button>
                             </div>
-                            <p>POWER-UPS</p>
                             <div>
+                                <br> POWER-UPS
                                 <button>Get Power-Ups</button>
                             </div>
-                            <p>ACTIONS</p>
                             <div>
+                                <br> ACTIONS
                                 <button>Move</button>
-                            </div>
-                            <div>
                                 <button>Copy</button>
-                            </div>
-                            <div>
                                 <button>Make Template</button>
-                            </div>
-                            <div>
                                 <button>Watch</button>
-                            </div>
-                            <div>
                                 <button>Archive</button>
-                            </div>
-                            <div>
                                 <button>Share</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- column MODAL EDIT -->
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>

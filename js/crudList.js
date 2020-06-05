@@ -11,11 +11,14 @@ function hideInputField(valueTask) {
 // ADD LIST 
 function newElement(action) {
     var inputValue = document.getElementById(`myInput-${action}`).value;
+    var id = Math.random();
     if (inputValue === '') {
         alert("You must write something!");
     } else {
         var li = document.createElement("li");
         li.className = `card-${action}`;
+        li.id = id;
+        li.setAttribute("onclick", "titleCard(id)");
         var a = document.createElement("a");
         a.className = `updateBtn-${action}`;
         var btnUpdate = document.createElement("span");
@@ -24,25 +27,24 @@ function newElement(action) {
         li.innerHTML = inputValue;
         li.appendChild(a);
         document.getElementById(`my-${action}`).appendChild(li);
-
         // Xoá cái đã nhập trong input
         document.getElementById(`myInput-${action}`).value = "";
     }
 }
-// UPDATE LIST
-function updateElement(action) {
+// UPDATE CARD 
+function titleCard(id, action) {
+    var titleByCard = document.getElementById(`${id}`).innerText;
+    document.getElementById(`${id}`).setAttribute("data-toggle", "modal");
+    document.getElementById(`${id}`).setAttribute("data-target", "#myModal");
+    document.getElementById("titleCardLI").innerHTML = titleByCard;
 
+    // var titleByUL = document.getElementById(`UL-${action}`).innerText;
+    // document.getElementById(`UL-${action}`).setAttribute("data-toggle", "modal");
+    // document.getElementById(`UL-${action}`).setAttribute("data-target", "#myModal");
+    // document.getElementById("titleUL").innerHTML = titleByUL;
 }
 
-// value = `${}`
-// id="done-1" onclick="editTask('done',1)"
-// editTask = (listID, taskID) => {
-//     var editTaskByModal = document.getElementById(`${listID}`, `${taskID}`).innerText;
-//     var decs = document.getElementById("");
-//     document.getElementById(`${listId}-${taskId}`).setAttribute("data-toggle", "modal")
-//     document.getElementById(`${listId}-${taskId}`).setAttribute("data-target", "#myModal");
-//     document.getElementById("titleModal").innerHTML = editTaskByModal;
-//     let p = document.createElement('p');
-//     p.innerHTML = decs;
-//     document.getElementById("decsModal").appendChild(p);
-// }
+// EDIT CARD
+function func1(event, id) {
+    event.stopPropagation();
+}
